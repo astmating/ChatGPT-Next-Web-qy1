@@ -36,6 +36,11 @@ const ru: LocaleType = {
       SaveAs: "Сохранить как маску",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "Все сообщения",
     Copy: "Копировать все",
