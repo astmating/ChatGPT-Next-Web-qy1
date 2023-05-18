@@ -7,18 +7,9 @@ import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import CopyIcon from "../icons/copy.svg";
 import ClearIcon from "../icons/clear.svg";
-import LoadingIcon from "../icons/three-dots.svg";
 import EditIcon from "../icons/edit.svg";
 import EyeIcon from "../icons/eye.svg";
-import {
-  Input,
-  List,
-  ListItem,
-  Modal,
-  PasswordInput,
-  Popover,
-  Select,
-} from "./ui-lib";
+import { Input, List, ListItem, Modal, PasswordInput, Popover } from "./ui-lib";
 import { ModelConfigList } from "./model-config";
 
 import { IconButton } from "./button";
@@ -326,6 +317,7 @@ export function Settings() {
           </div>
         </div>
       </div>
+      {/* 头像 */}
       <div className={styles["settings"]}>
         <List>
           <ListItem title={Locale.Settings.Avatar}>
@@ -349,22 +341,15 @@ export function Settings() {
               </div>
             </Popover>
           </ListItem>
-
-          <ListItem
-            title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
-            subTitle={
-              checkingUpdate
-                ? Locale.Settings.Update.IsChecking
-                : hasNewVersion
-                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                : Locale.Settings.Update.IsLatest
-            }
-          >
+           {/* 集训营 */}
+          <ListItem 
+                    title={Locale.Settings.BootCamptext.text}
+                    >
             {checkingUpdate ? (
-              <LoadingIcon />
+              <div />
             ) : hasNewVersion ? (
               <Link href={UPDATE_URL} target="_blank" className="link">
-                {Locale.Settings.Update.GoToUpdate}
+                {Locale.Settings.BootCamptext.putlink}
               </Link>
             ) : (
               <IconButton
@@ -374,9 +359,9 @@ export function Settings() {
               />
             )}
           </ListItem>
-
+          {/* 发送键 */}
           <ListItem title={Locale.Settings.SendKey}>
-            <Select
+            <select
               value={config.submitKey}
               onChange={(e) => {
                 updateConfig(
@@ -390,11 +375,11 @@ export function Settings() {
                   {v}
                 </option>
               ))}
-            </Select>
+            </select>
           </ListItem>
-
+          {/* 主题 */}
           <ListItem title={Locale.Settings.Theme}>
-            <Select
+            <select
               value={config.theme}
               onChange={(e) => {
                 updateConfig(
@@ -407,11 +392,11 @@ export function Settings() {
                   {v}
                 </option>
               ))}
-            </Select>
+            </select>
           </ListItem>
-
+          {/* 语言 */}
           <ListItem title={Locale.Settings.Lang.Name}>
-            <Select
+            <select
               value={getLang()}
               onChange={(e) => {
                 changeLang(e.target.value as any);
@@ -422,13 +407,11 @@ export function Settings() {
                   {Locale.Settings.Lang.Options[lang]}
                 </option>
               ))}
-            </Select>
+            </select>
           </ListItem>
-
-          <ListItem
-            title={Locale.Settings.FontSize.Title}
-            subTitle={Locale.Settings.FontSize.SubTitle}
-          >
+          {/* 字体大小 */}
+          <ListItem title={Locale.Settings.FontSize.Title}
+            subTitle={Locale.Settings.FontSize.SubTitle}>
             <InputRange
               title={`${config.fontSize ?? 14}px`}
               value={config.fontSize}
@@ -443,11 +426,9 @@ export function Settings() {
               }
             ></InputRange>
           </ListItem>
-
-          <ListItem
-            title={Locale.Settings.SendPreviewBubble.Title}
-            subTitle={Locale.Settings.SendPreviewBubble.SubTitle}
-          >
+          {/* 预览气泡 */}
+          <ListItem title={Locale.Settings.SendPreviewBubble.Title}
+            subTitle={Locale.Settings.SendPreviewBubble.SubTitle}>
             <input
               type="checkbox"
               checked={config.sendPreviewBubble}
@@ -459,11 +440,9 @@ export function Settings() {
               }
             ></input>
           </ListItem>
-
-          <ListItem
-            title={Locale.Settings.Mask.Title}
-            subTitle={Locale.Settings.Mask.SubTitle}
-          >
+          {/* 面具启动页 */}
+          <ListItem title={Locale.Settings.Mask.Title}
+            subTitle={Locale.Settings.Mask.SubTitle}>
             <input
               type="checkbox"
               checked={!config.dontShowMaskSplashScreen}
@@ -477,13 +456,14 @@ export function Settings() {
             ></input>
           </ListItem>
         </List>
-
+        
         <List>
+          {/* 密码 */}
           {enabledAccessControl ? (
-            <ListItem
+            <ListItem 
               title={Locale.Settings.AccessCode.Title}
               subTitle={Locale.Settings.AccessCode.SubTitle}
-            >
+             >
               <PasswordInput
                 value={accessStore.accessCode}
                 type="text"
@@ -496,7 +476,8 @@ export function Settings() {
           ) : (
             <></>
           )}
-
+          {/* API Key */}
+          {/*
           {!accessStore.hideUserApiKey ? (
             <ListItem
               title={Locale.Settings.Token.Title}
@@ -512,9 +493,10 @@ export function Settings() {
               />
             </ListItem>
           ) : null}
-
-          <ListItem
-            title={Locale.Settings.Usage.Title}
+          */}
+          {/* 余额查询 */}
+         {/*
+          <ListItem title={Locale.Settings.Usage.Title}
             subTitle={
               showUsage
                 ? loadingUsage
@@ -535,11 +517,14 @@ export function Settings() {
                 onClick={() => checkUsage(true)}
               />
             )}
-          </ListItem>
+          </ListItem>   
+           */}
         </List>
-
-        <List>
-          <ListItem
+        
+        
+         <List>
+          {/* 禁用提示词自动补全 */}
+          <ListItem 
             title={Locale.Settings.Prompt.Disable.Title}
             subTitle={Locale.Settings.Prompt.Disable.SubTitle}
           >
@@ -554,7 +539,7 @@ export function Settings() {
               }
             ></input>
           </ListItem>
-
+          {/* 自定义提示词列表 */}
           <ListItem
             title={Locale.Settings.Prompt.List}
             subTitle={Locale.Settings.Prompt.ListCount(
@@ -569,17 +554,17 @@ export function Settings() {
             />
           </ListItem>
         </List>
-
-        <List>
+        {/* 模型 */}
+      {/* <List>
           <ModelConfigList
             modelConfig={config.modelConfig}
-            updateConfig={(updater) => {
+            updateConfig={(upater) => {
               const modelConfig = { ...config.modelConfig };
-              updater(modelConfig);
+              upater(modelConfig);
               config.update((config) => (config.modelConfig = modelConfig));
             }}
-          />
-        </List>
+          /> 
+        </List> */}
 
         {shouldShowPromptModal && (
           <UserPromptModal onClose={() => setShowPromptModal(false)} />
