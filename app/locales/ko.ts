@@ -36,6 +36,11 @@ const ko: LocaleType = {
       SaveAs: "마스크로 저장",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "모든 메시지",
     Copy: "모두 복사",
