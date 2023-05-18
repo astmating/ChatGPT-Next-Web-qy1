@@ -36,6 +36,11 @@ const jp: LocaleType = {
       SaveAs: "另存为面具",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "チャット履歴をMarkdown形式でエクスポート",
     Copy: "すべてコピー",
