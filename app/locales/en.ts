@@ -36,6 +36,11 @@ const en: LocaleType = {
       SaveAs: "Save as Mask",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "All Messages",
     Copy: "Copy All",
