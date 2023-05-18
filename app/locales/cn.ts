@@ -35,6 +35,11 @@ const cn = {
       SaveAs: "另存为面具",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "导出聊天记录为 Markdown",
     Copy: "全部复制",
