@@ -35,6 +35,11 @@ const tw: LocaleType = {
       SaveAs: "另存为面具",
     },
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Export: {
     Title: "將聊天記錄匯出為 Markdown",
     Copy: "複製全部",
