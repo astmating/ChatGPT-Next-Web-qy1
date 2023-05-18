@@ -58,6 +58,11 @@ const tr: LocaleType = {
     DeleteToast: "Sohbet Silindi",
     Revert: "Geri Al",
   },
+    BootCamp: "AI集训营",
+    BootCamptext: {
+      text: "AI集训营",
+      putlink: "立即前往",
+    },
   Settings: {
     Title: "Ayarlar",
     SubTitle: "Tüm Ayarlar",
